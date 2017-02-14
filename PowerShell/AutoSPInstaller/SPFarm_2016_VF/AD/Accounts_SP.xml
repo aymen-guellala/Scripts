@@ -1,0 +1,79 @@
+<ServiceAccounts> 
+  <User> 
+    <FirstName>SharePoint</FirstName> 
+	<LastName>Farm</LastName> 
+	<UserName>SP_Farm</UserName> 
+	<Password>pass@word1</Password>
+	<Description>The server farm account is used to perform the following tasks: - Configure and manage the server farm. - Act as the application pool identity for the SharePoint Central Administration Web site. - Run the Microsoft SharePoint Foundation Workflow Timer Service</Description>
+  </User>
+  <User> 
+    <FirstName>SharePoint</FirstName> 
+	<LastName>Admin</LastName> 
+	<UserName>SP_Admin</UserName> 
+	<Password>pass@word1</Password>
+	<Description>The server farm account is used to perform the following tasks: - Administrative tasks</Description>
+  </User> 
+  <User> 
+    <FirstName>SharePoint</FirstName> 
+	<LastName>Install</LastName> 
+	<UserName>SP_Install</UserName> 
+	<Password>pass@word1</Password>
+	<Description>The server farm account is used to perform the following tasks: - Setup -SharePoint Products Configuration Wizard</Description>
+  </User> 
+  <User> 
+    <FirstName>SharePoint</FirstName> 
+	<LastName>Application Pool</LastName> 
+	<UserName>SP_Pool</UserName> 
+	<Password>pass@word1</Password>
+	<Description>The Pool account is used to run the Web Application Pool</Description>
+  </User> 
+  <User> 
+    <FirstName>SharePoint</FirstName> 
+	<LastName>MySite Application Pool</LastName> 
+	<UserName>SP_MySitePool</UserName> 
+	<Password>pass@word1</Password>
+	<Description>The Pool account is used to run the MySite Web Application Pool</Description>
+  </User> 
+  <User> 
+    <FirstName>SharePoint</FirstName> 
+	<LastName>User Profiles</LastName> 
+	<UserName>SP_UserProfiles</UserName> 
+	<Password>pass@word1</Password>
+	<Description>The User Profile Synchronization Account</Description>
+  </User>
+  <User> 
+    <FirstName>SharePoint</FirstName> 
+	<LastName>Services</LastName> 
+	<UserName>SP_Services</UserName> 
+	<Password>pass@word1</Password>
+	<Description>The Services Account is used to run the Service Application Pool</Description>
+  </User> 
+  <User> 
+    <FirstName>SharePoint</FirstName> 
+	<LastName>Search Content</LastName> 
+	<UserName>SP_Crawl</UserName> 
+	<Password>pass@word1</Password>
+	<Description>The Default Content Access Account for the Search Service Application</Description>
+  </User> 
+  <User> 
+    <FirstName>SharePoint</FirstName> 
+	<LastName>Search Service</LastName> 
+	<UserName>SP_Search</UserName> 
+	<Password>pass@word1</Password>
+	<Description>Service Account to run the SharePoint Search 'Windows Service'</Description>
+  </User> 
+  <User> 
+    <FirstName>SharePoint</FirstName> 
+	<LastName>Cache Super User</LastName> 
+	<UserName>SP_CacheUser</UserName> 
+	<Password>pass@word1</Password>
+	<Description>Cache Account</Description>
+  </User> 
+  <User> 
+    <FirstName>SharePoint</FirstName> 
+	<LastName>Cache Super Reader</LastName> 
+	<UserName>SP_CacheReader</UserName> 
+	<Password>pass@word1</Password>
+	<Description>Cache Account</Description>
+  </User> 
+</ServiceAccounts>

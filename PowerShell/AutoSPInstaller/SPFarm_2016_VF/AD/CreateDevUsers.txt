@@ -1,0 +1,5 @@
+ foreach ($i in @("00","01","02","03","04","05","06","07","08","09","10")) {
+$UserName = "User$i"
+$UserpName = "User$i@agfarm.local"
+New-ADUser -SamAccountName $UserName -UserPrincipalName $UserpName -Name $UserName -DisplayName $UserName -Path "OU=Dev Users,DC=agfarm,DC=local" -AccountPassword (ConvertTo-SecureString "pass@word1" -AsPlainText -force) -Enabled $True -PasswordNeverExpires $True -EmailAddress "aguellala@negotium.com" -PassThru 
+}

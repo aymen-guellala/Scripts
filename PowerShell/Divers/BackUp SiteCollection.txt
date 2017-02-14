@@ -1,0 +1,7 @@
+Backup-SPSite "http://sp13int.intranet.valacta.com" -Path "D:\Intranet\BackUps\Intranet_20140731.bak"
+Backup-SPSite "http://sp13int.intranet.valacta.com/cthub" -Path "D:\Intranet\BackUps\Cthub_20140731.bak"
+
+
+
+Restore-SPSite "http://sp13int.mep.valacta.com/cthub" -Path "D:\Intranet\BackUps\Cthub_20140731.bak" -Force
+Restore-SPSite "http://sp13int.mep.valacta.com" -Path "D:\Intranet\BackUps\Intranet_20140731.bak" -Force

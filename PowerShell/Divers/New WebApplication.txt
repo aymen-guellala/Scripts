@@ -1,0 +1,34 @@
+# SharePoint cmdlets
+Add-PsSnapin Microsoft.SharePoint.PowerShell
+# Set variables
+$WebAppName = "Intranet MEP"
+$WebAppHostHeader = "sp13int.mep.valacta.com/"
+$WebAppPort = 80
+$WebAppAppPool = "Portal"
+# This User has to be a Sharepoint Manager Account
+$WebAppAppPoolAccount = "CDHI\SP13INT_Pool"
+$WebAppDatabaseName = "WSS_Content_Intranet_MEP"
+$WebAppDatabaseServer = "SP13INT01\sp13int01"
+
+# Create a new Sharepoint WebApplication
+New-SPWebApplication -Name $WebAppName -Port $WebAppPort -HostHeader $WebAppHostHeader -URL ("http://" + $WebAppHostHeader) -ApplicationPool $WebAppAppPool -ApplicationPoolAccount (Get-SPManagedAccount $WebAppAppPoolAccount) -DatabaseName $WebAppDatabaseName -DatabaseServer $WebAppDatabaseServer
+
+
+# Create a new Sharepoint SiteCollection
+$webTemplates = Get-SPWebTemplate 
+$WebSiteUrl = "http://hsc.intranet.ca/Sites/BCS" 
+$SiteOwner = "VICDEV\Administrator"
+
+if($webTemplates)
+{
+    foreach ($webTemplate in $webTemplates) 
+    {    
+        # Write-Host "--> " $webTemplate.Name    
+        if($webTemplate.Name -like "STS#1")
+        {
+            Write-Host "Creating Root Site Collection " $webTemplate.Name
+            New-SPSite -Url $WebSiteUrl -OwnerAlias $SiteOwner -Name "BCS" -Template $webTemplate            
+            Write-Host "Root Site Collection created ..."
+        }
+    }       
+}

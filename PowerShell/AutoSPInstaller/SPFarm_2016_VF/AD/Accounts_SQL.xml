@@ -1,0 +1,23 @@
+<ServiceAccounts>  
+  <User> 
+    <FirstName>SQL</FirstName> 
+	<LastName>Admin</LastName> 
+	<UserName>SQL16_Admin</UserName> 
+	<Password>pass@word1</Password>
+	<Description>SQL Admin on the SQL Server. Used to Install the SQL Server.</Description>
+  </User> 
+	<User> 
+    <FirstName>SQL</FirstName> 
+	<LastName>Agent</LastName> 
+	<UserName>SQL16_Agent</UserName> 
+	<Password>pass@word1</Password>
+	<Description>It is the service account for the following SQL Server services: SQL SERVER AGENT.</Description>
+  </User> 
+  <User> 
+    <FirstName>SQL</FirstName> 
+	<LastName>Engine</LastName> 
+	<UserName>SQL16_Engine</UserName> 
+	<Password>pass@word1</Password>
+	<Description>It is the service account for the following SQL Server services: Database Engine</Description>
+  </User> 
+</ServiceAccounts>

@@ -1,0 +1,2 @@
+Export-SPWeb http://sp13int.intranet.valacta.com/dc -Path "D:\Intranet\Export_DCC\DCC_20140724.cmp"
+Import-SPWeb http://sp13int.intranet.valacta.com/dc2 -Path "D:\Intranet\Export_DCC\DCC_20140724.cmp" -UpdateVersions Overwrite

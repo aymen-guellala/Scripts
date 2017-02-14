@@ -1,0 +1,9 @@
+<ServiceAccounts>  
+  <User> 
+    <FirstName>Workflow</FirstName> 
+	<LastName>Admin</LastName> 
+	<UserName>WF_Admin</UserName> 
+	<Password>pass@word1</Password>
+	<Description>Workflow administrator</Description>
+  </User> 
+</ServiceAccounts>

@@ -1,0 +1,49 @@
+function Publish-ContentTypeHub {
+    param
+    (
+        [parameter(mandatory=$true)][string]$CTHUrl,
+        [parameter(mandatory=$true)][string]$Group
+    )
+ 
+    $site = Get-SPSite $CTHUrl
+    if(!($site -eq $null))
+    {
+        $contentTypePublisher = New-Object Microsoft.SharePoint.Taxonomy.ContentTypeSync.ContentTypePublisher ($site)
+        $site.RootWeb.ContentTypes | ? {$_.Group -match $Group} | % {
+            $contentTypePublisher.Publish($_)
+            write-host "Content type" $_.Name "has been republished" -foregroundcolor Green
+        }
+    }
+}
+
+function UpdateContentTypeHub([string]$url) 
+{ 
+    write-host Get the Timer job 
+    $job = Get-SPTimerJob -WebApplication $url | ?{ $_.Name -like "MetadataSubscriberTimerJob"} 
+     
+    write-host check that the job is null or not
+    if ($job -ne $null)  
+    {   
+        write-host run the timer job 
+        $job | Start-SPTimerJob 
+         
+        write-host  run the admin action 
+        Start-SPAdminJob -ErrorAction SilentlyContinue     
+         
+    }     
+     
+} 
+
+cls
+
+$cthubUrl = "http://sp13int.mep.valacta.com/cthub"
+$ctGrp = "\* GED"
+
+write-host republish content types on the content hub $cthubUrl on the grp $ctGrp
+Publish-ContentTypeHub $cthubUrl $ctGrp
+
+write-host run Metadata hub timer job -foregroundcolor Green
+Get-SPTimerJob MetadataHubTimerJob | Start-SPTimerJob
+
+write-host get the web applications and update the content type hub subscribers for each web application 
+Get-SPWebApplication | ForEach-Object { Write-Host "Updating Metadata for site:" $_.Url -foregroundcolor Green; UpdateContentTypeHub -url $_.Url } 
